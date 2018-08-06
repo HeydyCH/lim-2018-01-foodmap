@@ -2,6 +2,7 @@ var map;
 var infowindow;
 
 let img = document.getElementById("img_rpta");
+let name = document.getElementById("nameLugar");
 
 
 function initMap() {
@@ -27,7 +28,7 @@ function initMap() {
     var request = {
       location: myLatlng,
       radius: 5000,
-      types: ['gym']
+      types: ['cafe']
     };
 
     // Creamos el servicio PlaceService y enviamos la petición.
@@ -48,8 +49,25 @@ function crearMarcador(place) {
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location
+    
   });
 
+  name.innerHTML +=`
+      <h5> ${place.name}</h3>
+      `
+  if (place.photos) {
+    // alert(place.photos[0].getUrl({ 'maxWidth': 350, 'maxHeight': 350 }));
+    console.log(place.photos[0].getUrl({ 'maxWidth': 350, 'maxHeight': 350 }))
+    let url = place.photos[0].getUrl({ 'maxWidth': 350, 'maxHeight': 350 }) ;  
+    // console.log(place)
+    // console.log(place.icon)
+    console.log(place.name)
+    // console.log(place.photos[0].getUrl())  
+    name.innerHTML +=`
+    <img src=${url} alt="Logotipo de HTML5" width="400" height="453">`
+  }
+
+  name.innerHTML +=`<hr>`
 
 
   // Asignamos el evento click del marcador
@@ -57,22 +75,7 @@ function crearMarcador(place) {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
     let name = place.name
-
     img.innerHTML=`
-      <h3> El nombre es : ${name}</h3>`
-
-    if (place.photos) {
-      alert(place.photos[0].getUrl({ 'maxWidth': 350, 'maxHeight': 350 }));
-      console.log(place.photos[0].getUrl({ 'maxWidth': 350, 'maxHeight': 350 }))
-      let url = place.photos[0].getUrl({ 'maxWidth': 350, 'maxHeight': 350 }) ;
-     
-      console.log(place)
-      console.log(place.icon)
-      console.log(place.name)
-      // console.log(place.photos[0].getUrl())
-     
-      img.innerHTML +=`
-      <img src=${url} alt="Logotipo de HTML5" width="400" height="453">`
-    }
+      <h3> El nombre es : ${name}</h3>`    
   });
 }
