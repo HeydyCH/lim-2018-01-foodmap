@@ -1,0 +1,7 @@
+#mapa{
+    /* Establece el tamaño del elemento div que contiene el mapa */
+    height: 400px;
+    /* La altura es de 400 píxeles  */
+    width: 80%;
+    /* El ancho es el ancho de la página web */
+}
