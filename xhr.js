@@ -19,7 +19,41 @@ getDataGeneral = () => {
   getData('restaurant.json', (err, data) => {
     resulFilter.innerHTML = " ";
     for(var i in data){
-      resulAll.innerHTML += i + ": " + data[i].name + "->" + data[i].types+ "<br/> ";
+      // resulAll.innerHTML += i + ": " + data[i].name + "->" + data[i].types+ "<br/> ";
+      resulAll.innerHTML += `
+      <div class="color1 col-xs-12 col-sm-6 col-md-6">
+        <img src="${data[i].photo}" alt="" class="img-thumbnail photoRestaurant">
+        <br/>
+        <center>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModall${i}">${data[i].name}</button>
+        </center>
+        <br/>
+        <div class="modal fade" id="myModall${i}">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title"> RESTAURANT : ${data[i].name} </h4>
+              </div>
+              <div class="modal-body">
+                <p>Distrito : ${data[i].district}
+                  <br> Direccion : ${data[i].address}
+                  <br> Horario de Atencion: ${data[i].horarios}
+                  <br> Tipo de restaurant : ${data[i].types}
+                  <br>
+                </p>
+                <center>
+                  <img src="${data[i].photoMap}" alt="" id="mapRestaurant">
+                </center>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      `
     }
     // var edadMenor = encontrarEdadmenor(data);
     // resultado.innerHTML += "La edad menor es : " + edadMenor ;
@@ -34,9 +68,6 @@ getDataFilter = (tipo) => {
     for(var i in data){
         if(data[i].types == tipo){
           // resulFilter.innerHTML += i + ": " + data[i].name + "->" + data[i].types+ "<br/> ";
-          // let idModal= "myModal" + i
-          // '#modal" + adder + "'
-          // "#"+"${idModal}"
           resulFilter.innerHTML += `
           <div class="color1 col-xs-12 col-sm-6 col-md-6">
             <img src="${data[i].photo}" alt="" class="img-thumbnail photoRestaurant">
@@ -99,28 +130,3 @@ let select = document.getElementById('select')
       }
     
     });
-
-
-function encontrarEdadmenor(objetoJSON)
-      {
-        var arreglo = [];
-        for(var i in objetoJSON){
-            var persona = objetoJSON[i];
-            arreglo.push(persona.edad);
-        }
-        // var edadMenor = arreglo[0];
-        //
-        // for(var j=0 ; j<arreglo.length ; j++){
-        //     if(arreglo[j]<edadMenor){
-        //       edadMenor = arreglo[j];
-        //
-        //     }
-        // }
-
-        // Linea para hallar menor valor
-        var edadMenor = Math.min.apply(null,arreglo);
-        // Linea para hallar mayor valor
-        // var edadMenor = Math.max.apply(null,arreglo);
-
-        return edadMenor ;
-}

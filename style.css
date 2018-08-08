@@ -22,3 +22,8 @@ header{
   height: 400px;
   width: 400px;
 }
+
+#select{
+  color:black;
+  font-size: 20px
+  }
