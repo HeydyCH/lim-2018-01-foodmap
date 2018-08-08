@@ -32,10 +32,10 @@ getDataGeneral = () => {
           <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-              <div class="modal-header">
+              <div class="modal-header" id="titleAll">
                 <h4 class="modal-title"> RESTAURANT : ${data[i].name} </h4>
               </div>
-              <div class="modal-body">
+              <div class="modal-body  fondo">
                 <p>
                   <strong>Distrito :</strong> ${data[i].district}
                   <br><strong>Direccion :</strong> ${data[i].address}
@@ -82,10 +82,10 @@ getDataFilter = (tipo) => {
               <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
-                  <div class="modal-header">
+                  <div class="modal-header" id="title">
                     <h4 class="modal-title"> RESTAURANT : ${data[i].name} </h4>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body fondo">
                   <p>
                     <strong>Distrito :</strong> ${data[i].district}
                     <br><strong>Direccion :</strong> ${data[i].address}

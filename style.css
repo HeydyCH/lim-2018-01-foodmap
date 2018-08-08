@@ -28,4 +28,9 @@ header{
   font-size: 20px;
   font-weight: bold;
   background-color: #F1C40F;
-  }
+}
+
+#title , #titleAll{
+  background-color: #ffff4d
+}
+
