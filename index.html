@@ -8,25 +8,58 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
     crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" media="screen" href="./src/view/style.css" />
-  <title>Hello, footmap HEYDY !</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  <title>FOOTMAP</title>
 </head>
 
-<body onload="initMap()">
-  <h1>Hello, footmap heydy verdadero !</h1>
-  <hr>
-  <div id="mapa"></div>
-  <h3>My Google Maps Demo -- Obtener restaurants cercanos </h3>
-  <select name="select">
-    <option value="value1">Restaurant Vegetariano</option>
-    <option value="value2" selected>Restaurant</option>
-    <option value="value3">Comida Mexicana</option>
-  </select>
+<body>
+
+  <header>
+    <p class="h1 text-center"> FOOTMAP HEYDY !</p>
+  </header>
+
+  <div class="container">
+    <center>
+      <br>
+      <div id="map"></div>
+      <br>
+    </center>
+    <button type="button" class="btn  btn-warning btn-block" id="verData">
+      <h4>Mostrar los restaurantes + Recomendados</h4>
+    </button>
+    <hr>
+    <p class="h3 text-center"> Comida cerca de ti !! </p>
+    <div class="form-group">
+      <select name="select" id="select" class="form-control" id="sel1">
+        <option value="" disabled selected>Filtrar restaurantes</option>
+        <option value="mexico">Comida Mexicana</option>
+        <option value="peru">Comida Peruana</option>
+        <option value="brasil">Comida Brasileña</option>
+      </select>
+    </div>
+
+    <div id="allRestaurant"></div>
+    <div id="filterRestaurant" class="row"></div>
+
+  </div>
+
 
   <div id="img_rpta"></div>
-  <div id= "nameLugar"></div>
-  <script type="text/javascript" src="https://maps.google.com/maps/api/js?libraries=places"></script>
-  <script src="./src/controller/main.js"></script>
+  <div id="nameLugar"></div>
+
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJSJ6sdcj6hx-GGk5SnTGDvSPqFXOqd_Q&callback=initMap"></script> -->
+  <script src="api.js"></script>
+  <script src="xhr.js"></script>
 </body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJSJ6sdcj6hx-GGk5SnTGDvSPqFXOqd_Q&libraries=places&callback=initMap"
+  async defer></script>
 
 </html>
