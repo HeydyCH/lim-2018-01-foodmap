@@ -36,14 +36,16 @@ getDataGeneral = () => {
                 <h4 class="modal-title"> RESTAURANT : ${data[i].name} </h4>
               </div>
               <div class="modal-body">
-                <p>Distrito : ${data[i].district}
-                  <br> Direccion : ${data[i].address}
-                  <br> Horario de Atencion: ${data[i].horarios}
-                  <br> Tipo de restaurant : ${data[i].types}
+                <p>
+                  <strong>Distrito :</strong> ${data[i].district}
+                  <br><strong>Direccion :</strong> ${data[i].address}
+                  <br><strong>Horario de Atencion:</strong>${data[i].horarios}
                   <br>
                 </p>
                 <center>
                   <img src="${data[i].photoMap}" alt="" id="mapRestaurant">
+                  <br>
+                  <br><strong>TIPO DE RESTAURANT : ${data[i].types} </strong>
                 </center>
               </div>
               <div class="modal-footer">
@@ -84,11 +86,12 @@ getDataFilter = (tipo) => {
                     <h4 class="modal-title"> RESTAURANT : ${data[i].name} </h4>
                   </div>
                   <div class="modal-body">
-                    <p>Distrito : ${data[i].district}
-                      <br> Direccion : ${data[i].address}
-                      <br> Horario de Atencion: ${data[i].horarios}
-                      <br>
-                    </p>
+                  <p>
+                    <strong>Distrito :</strong> ${data[i].district}
+                    <br><strong>Direccion :</strong> ${data[i].address}
+                    <br><strong>Horario de Atencion:</strong>${data[i].horarios}
+                    <br>
+                  </p>
                     <center>
                       <img src="${data[i].photoMap}" alt="" id="mapRestaurant">
                     </center>
